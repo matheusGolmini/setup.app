@@ -1,0 +1,26 @@
+version: '3'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: api
+    ports:
+      - 8080:8080
+      - 5005:5005
+      - 35729:35729
+    restart: always
+    command: sh docker-entrypoint.sh
+    depends_on:
+      - db
+    env_file:
+      - .env
+    volumes:
+      - ./:/app
+  db:
+    image: postgres
+    container_name: db
+    ports:
+      - 5432:5432
+    volumes:
+      - ./data:/var/lib/postgresql/data
