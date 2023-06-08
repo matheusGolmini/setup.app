@@ -1,14 +1,16 @@
 package com.example.setup.app.controller;
 
+import com.example.setup.app.dtos.UpdateUserDto;
 import com.example.setup.app.dtos.UserDto;
 import com.example.setup.app.models.UserModel;
-import com.example.setup.app.service.UserService;
+import com.example.setup.app.service.IUserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.nio.file.attribute.UserPrincipalNotFoundException;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -16,11 +18,12 @@ import java.util.UUID;
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping("/users")
 public class UserController {
-    final UserService userService;
+    final IUserService userService;
 
-    public UserController(UserService userService) {
+    public UserController(IUserService userService) {
         this.userService = userService;
     }
+
     @PostMapping
     public ResponseEntity<Object> saveUser(@RequestBody @Valid UserDto userDto) {
         var userModel = new UserModel();
@@ -40,9 +43,9 @@ public class UserController {
     }
 
     @ResponseStatus(HttpStatus.OK)
-    @DeleteMapping(value = "/{userId}")
-    public void updateUser(@PathVariable(value = "userId") String userId) {
-        userService.deleteUserById(UUID.fromString(userId));
+    @PatchMapping(value = "/{userId}")
+    public UserModel updateUserById(@PathVariable(value = "userId") String userId, @RequestBody @Valid UpdateUserDto updateUserDto ) throws UserPrincipalNotFoundException {
+        return userService.updateUserById(UUID.fromString(userId), updateUserDto);
     }
 
     @ResponseStatus(HttpStatus.OK)
