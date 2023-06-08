@@ -7,16 +7,15 @@
 ## Integrated development environment
 - [IntelliJ](https://www.jetbrains.com/idea/download/#section=linux)
 
-## Run the application
-Open a terminate and run the following command in the project root:
-```sh
-docker-compose up
-```
-
 ## Starting the application
 Open a terminate and run the following command in the project root:
 ```sh
 docker-compose up --build
+```
+## Run the application
+Open a terminate and run the following command in the project root:
+```sh
+docker-compose up
 ```
 
 ## Configure debug mode
