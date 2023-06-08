@@ -1,0 +1,157 @@
+{
+	"info": {
+		"_postman_id": "4bd672cb-d611-43ac-a1a1-f115cc5d8f89",
+		"name": "Java Crud",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7958474"
+	},
+	"item": [
+		{
+			"name": "Health Check",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/health-check",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"health-check"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Matheus\",\n    \"email\": \"matheus@gmail.com\",\n    \"password\": \"1235456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/359c35c9-ea1c-4991-a356-db48a6514a7f",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"359c35c9-ea1c-4991-a356-db48a6514a7f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User By Id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/359c35c9-ea1c-4991-a356-db48a6514a7f",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"359c35c9-ea1c-4991-a356-db48a6514a7f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Users",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"lucas@tadeu.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/80701d1c-e667-4f3a-a04e-a286b8d68307",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"80701d1c-e667-4f3a-a04e-a286b8d68307"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
